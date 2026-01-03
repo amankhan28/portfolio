@@ -1,0 +1,1 @@
+/Users/I1858/Desktop/Projects/portfoloio/node_modules/pdf-parse/dist/pdf-parse/cjs/index.cjs:1
