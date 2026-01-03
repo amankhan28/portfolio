@@ -43,11 +43,11 @@ const skillCategories = [
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-8 md:py-12 bg-white dark:bg-gray-900 scroll-mt-20 relative overflow-hidden">
+    <section id="skills" className="py-8 md:py-12 bg-white dark:bg-gray-900 scroll-mt-20 relative overflow-hidden w-full max-w-full">
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-pink-500/10 pointer-events-none" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full max-w-full overflow-x-hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

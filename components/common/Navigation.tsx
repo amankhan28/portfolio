@@ -111,8 +111,8 @@ export default function Navigation() {
         style={{ scaleX }}
       />
 
-      <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 border-b border-gray-200/50 dark:border-gray-800/50 shadow-lg">
-        <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+      <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 border-b border-gray-200/50 dark:border-gray-800/50 shadow-lg w-full max-w-full overflow-x-hidden">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 w-full max-w-full">
           <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
             {/* Logo with enhanced animation */}
             <motion.a

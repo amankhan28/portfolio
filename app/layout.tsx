@@ -98,8 +98,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
-      <body className="bg-white dark:bg-gray-900 transition-colors duration-200">
+    <html lang="en" suppressHydrationWarning className="dark overflow-x-hidden">
+      <body className="bg-white dark:bg-gray-900 transition-colors duration-200 overflow-x-hidden w-full max-w-full">
         <ThemeProvider>
           <Navigation />
           {children}

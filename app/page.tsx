@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <StructuredData />
-      <main>
+      <main className="overflow-x-hidden w-full max-w-full">
       {/* Hero Section */}
       <section id="home" className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 scroll-mt-20 py-8 sm:py-12 md:py-16 lg:py-20 min-h-[85vh] flex items-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full">

@@ -28,8 +28,8 @@ const achievements = [
 
 export default function AchievementsSection() {
   return (
-    <section id="achievements" className="py-8 md:py-12 bg-white dark:bg-gray-900 scroll-mt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="achievements" className="py-8 md:py-12 bg-white dark:bg-gray-900 scroll-mt-20 w-full max-w-full overflow-x-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
