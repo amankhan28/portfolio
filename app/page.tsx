@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Linkedin, FileText, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
@@ -11,7 +12,27 @@ import ContactSection from "@/components/sections/ContactSection";
 import ProfileImage from "@/components/common/ProfileImage";
 import StructuredData from "@/components/seo/StructuredData";
 
+interface Particle {
+  left: number;
+  top: number;
+  animationDelay: number;
+  animationDuration: number;
+}
+
 export default function Home() {
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  // Generate particles only on client side to avoid hydration mismatch
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 20 }, () => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        animationDelay: Math.random() * 2,
+        animationDuration: 1 + Math.random() * 2,
+      }))
+    );
+  }, []);
   return (
     <>
       <StructuredData />
@@ -76,9 +97,30 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="relative flex items-center justify-center order-1 md:order-2 mb-4 md:mb-0"
             >
-              <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[500px] mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full blur-3xl opacity-30 dark:opacity-20 scale-90"></div>
-                <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl aspect-square w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[500px] mx-auto">
+              <div className="relative w-full max-w-[260px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[400px] mx-auto">
+                {/* Cyberpunk animated glow background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full blur-3xl opacity-40 dark:opacity-30 scale-90 animate-pulse"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full blur-2xl opacity-30 dark:opacity-20 scale-95"></div>
+                
+                {/* Matrix-style particles effect */}
+                <div className="absolute inset-0 rounded-full overflow-hidden">
+                  <div className="absolute inset-0 opacity-20">
+                    {particles.map((particle, i) => (
+                      <div
+                        key={i}
+                        className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-pulse"
+                        style={{
+                          left: `${particle.left}%`,
+                          top: `${particle.top}%`,
+                          animationDelay: `${particle.animationDelay}s`,
+                          animationDuration: `${particle.animationDuration}s`,
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="relative rounded-full overflow-hidden border-4 border-cyan-400/50 dark:border-cyan-400/50 shadow-[0_0_30px_rgba(34,211,238,0.6),inset_0_0_30px_rgba(34,211,238,0.3)] aspect-square w-full max-w-[260px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[400px] mx-auto">
                   <ProfileImage />
                 </div>
               </div>
