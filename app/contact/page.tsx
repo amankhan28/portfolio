@@ -36,7 +36,7 @@ export default function Contact() {
                 aman2810khan@gmail.com
               </a>
               <a
-                href="https://www.linkedin.com/in/aman-khan-57a0b67b"
+                href="https://www.linkedin.com/in/khan-builds-tech"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"

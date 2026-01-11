@@ -266,7 +266,7 @@ const faqSchema = {
       name: "How to contact Aman Khan for job opportunities?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can contact Aman Khan via email at aman2810khan@gmail.com or connect with him on LinkedIn at linkedin.com/in/aman-khan-57a0b67b",
+        text: "You can contact Aman Khan via email at aman2810khan@gmail.com or connect with him on LinkedIn at linkedin.com/in/khan-builds-tech",
       },
     },
     {

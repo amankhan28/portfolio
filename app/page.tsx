@@ -80,7 +80,7 @@ export default function Home() {
                   Resume
                 </Link>
                 <Link
-                  href="https://www.linkedin.com/in/aman-khan-57a0b67b"
+                  href="https://www.linkedin.com/in/khan-builds-tech"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"

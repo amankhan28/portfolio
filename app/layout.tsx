@@ -187,7 +187,7 @@ export const metadata: Metadata = {
   
   // Verification Tags
   verification: {
-    google: "wJVs801zyJTUBHpUmJjbr8ZSWWKdnv0-7l3EoX9sqB8",
+    google: "8KMBQbCOQYUPguTJwZ7yEUNJymvvZgdTbppubq0PyUA",
     // Add these when you set them up:
     // yandex: "your-yandex-verification-code",
     // bing: "your-bing-verification-code",
