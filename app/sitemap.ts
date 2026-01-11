@@ -2,6 +2,9 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://amankhan.dev";
+  
+  // Last updated date - update this when making significant content changes
+  const lastUpdated = new Date("2026-01-11");
 
   return [
     {

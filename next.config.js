@@ -37,6 +37,12 @@ const nextConfig = {
         hostname: 'img.youtube.com',
         pathname: '/**',
       },
+      // Allow YouTube thumbnails (alternate domain)
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+        pathname: '/**',
+      },
       {
         protocol: 'https',
         hostname: 'i.ytimg.com',

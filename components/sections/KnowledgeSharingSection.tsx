@@ -1,63 +1,72 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Youtube, ExternalLink, Loader2 } from "lucide-react";
+import { Youtube, ExternalLink, Eye, Clock, Loader2 } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 interface Video {
   id: string;
-  url: string;
-  title?: string;
-  thumbnailUrl?: string;
-  isLoading?: boolean;
+  title: string;
+  description: string;
+  thumbnailUrl: string;
+  publishedAt: string;
+  viewCount?: string;
+  duration?: string;
 }
 
-const videoUrls = [
-  "https://www.youtube.com/watch?v=mta3ynGk-U0",
-  "https://www.youtube.com/watch?v=ZyujOrDFyVc",
+// Fallback videos in case API fails or during development
+const fallbackVideos: Video[] = [
+  {
+    id: "mta3ynGk-U0",
+    title: "Video 1",
+    description: "",
+    thumbnailUrl: "https://img.youtube.com/vi/mta3ynGk-U0/maxresdefault.jpg",
+    publishedAt: "",
+  },
+  {
+    id: "ZyujOrDFyVc",
+    title: "Video 2",
+    description: "",
+    thumbnailUrl: "https://img.youtube.com/vi/ZyujOrDFyVc/maxresdefault.jpg",
+    publishedAt: "",
+  },
 ];
 
 export default function KnowledgeSharingSection() {
   const [videos, setVideos] = useState<Video[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchVideoData = async () => {
-      setIsLoading(true);
-      const videoPromises = videoUrls.map(async (url) => {
-        const videoId = url.split('v=')[1]?.split('&')[0] || '';
-        try {
-          const response = await fetch(`/api/youtube?url=${encodeURIComponent(url)}`);
-          if (response.ok) {
-            const data = await response.json();
-            return {
-              id: videoId,
-              url,
-              title: data.title,
-              thumbnailUrl: data.thumbnailUrl,
-              isLoading: false,
-            };
-          }
-        } catch (error) {
-          console.error(`Error fetching video ${videoId}:`, error);
+    const fetchVideos = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch("/api/youtube");
+        
+        if (!response.ok) {
+          throw new Error("Failed to fetch videos");
         }
-        // Fallback if API fails
-        return {
-          id: videoId,
-          url,
-          title: `Video ${videoId}`,
-          thumbnailUrl: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
-          isLoading: false,
-        };
-      });
-
-      const videoData = await Promise.all(videoPromises);
-      setVideos(videoData);
-      setIsLoading(false);
+        
+        const data = await response.json();
+        
+        if (data.videos && data.videos.length > 0) {
+          setVideos(data.videos);
+        } else {
+          // Use fallback videos if no videos returned
+          setVideos(fallbackVideos);
+        }
+      } catch (err) {
+        console.error("Error fetching videos:", err);
+        setError("Could not load videos");
+        // Use fallback videos on error
+        setVideos(fallbackVideos);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
-    fetchVideoData();
+    fetchVideos();
   }, []);
 
   return (
@@ -86,33 +95,42 @@ export default function KnowledgeSharingSection() {
           <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 px-4 max-w-2xl mx-auto">
             Sharing insights and knowledge through video content
           </p>
+          {videos.length > 0 && !isLoading && (
+            <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
+              {videos.length} video{videos.length !== 1 ? 's' : ''} available
+            </p>
+          )}
         </motion.div>
 
-        {isLoading ? (
-          <div className="flex justify-center items-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-red-600 dark:text-red-400" />
-          </div>
-        ) : (
-          <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto">
+          {isLoading ? (
+            <div className="flex flex-col items-center justify-center py-20">
+              <Loader2 className="w-10 h-10 text-red-600 dark:text-red-400 animate-spin mb-4" />
+              <p className="text-gray-600 dark:text-gray-400">Loading videos...</p>
+            </div>
+          ) : error && videos.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-gray-600 dark:text-gray-400">{error}</p>
+            </div>
+          ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {videos.map((video, index) => (
                 <VideoCard key={video.id} video={video} index={index} />
               ))}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </section>
   );
 }
 
 function VideoCard({ video, index }: { video: Video; index: number }) {
-  const thumbnailUrl = video.thumbnailUrl || `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
   const fallbackThumbnailUrl = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
 
   return (
     <motion.a
-      href={video.url}
+      href={`https://www.youtube.com/watch?v=${video.id}`}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ opacity: 0, y: 50 }}
@@ -125,8 +143,8 @@ function VideoCard({ video, index }: { video: Video; index: number }) {
       {/* Thumbnail Container */}
       <div className="relative w-full aspect-video overflow-hidden bg-gray-200 dark:bg-gray-700">
         <Image
-          src={thumbnailUrl}
-          alt={video.title || `YouTube video ${video.id}`}
+          src={video.thumbnailUrl}
+          alt={video.title}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-300"
           sizes="(max-width: 768px) 100vw, 50vw"
@@ -152,6 +170,14 @@ function VideoCard({ video, index }: { video: Video; index: number }) {
           </div>
         </div>
 
+        {/* Duration Badge */}
+        {video.duration && (
+          <div className="absolute bottom-3 right-3 bg-black/80 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
+            <Clock className="w-3 h-3" />
+            {video.duration}
+          </div>
+        )}
+
         {/* YouTube Badge */}
         <div className="absolute top-3 right-3 bg-red-600 text-white px-2 py-1 rounded-md text-xs font-semibold flex items-center gap-1">
           <Youtube className="w-3 h-3" />
@@ -162,11 +188,21 @@ function VideoCard({ video, index }: { video: Video; index: number }) {
       {/* Content */}
       <div className="p-4 md:p-6">
         <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300 line-clamp-2">
-          {video.title || `Video ${video.id}`}
+          {video.title}
         </h3>
-        <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-          <ExternalLink className="w-4 h-4" />
-          <span>Watch on YouTube</span>
+        
+        <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex items-center gap-2">
+            <ExternalLink className="w-4 h-4" />
+            <span>Watch on YouTube</span>
+          </div>
+          
+          {video.viewCount && (
+            <div className="flex items-center gap-1">
+              <Eye className="w-4 h-4" />
+              <span>{video.viewCount} views</span>
+            </div>
+          )}
         </div>
       </div>
 
