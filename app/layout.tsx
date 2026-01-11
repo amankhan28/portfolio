@@ -115,16 +115,26 @@ export const metadata: Metadata = {
     telephone: false,
   },
   
-  // Icons & Favicons
+  // Icons & Favicons - Google requires at least 48x48px, multiples of 48 preferred
   icons: {
     icon: [
-      { url: "/AK_Dark.png", sizes: "32x32", type: "image/png" },
-      { url: "/AK_Dark.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/favicon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/images/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/AK_Dark.png", sizes: "192x192", type: "image/png" },
+      { url: "/images/AK_Dark.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
-      { url: "/AK_Dark.png", sizes: "180x180", type: "image/png" },
+      { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: "/AK_Dark.png",
+    shortcut: "/images/favicon-48.png",
+    other: [
+      {
+        rel: "icon",
+        url: "/images/favicon-48.png",
+        sizes: "48x48",
+      },
+    ],
   },
   
   // PWA Manifest
@@ -147,7 +157,7 @@ export const metadata: Metadata = {
         type: "image/jpeg",
       },
       {
-        url: "/AK_Dark.png",
+        url: "/images/AK_Dark.png",
         width: 512,
         height: 512,
         alt: "Aman Khan Logo",

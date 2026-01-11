@@ -1,22 +1,47 @@
 {
-  "name": "Aman Khan — Tech Lead",
+  "name": "Aman Khan — Frontend Developer & Tech Lead",
   "short_name": "Aman Khan",
-  "description": "Tech Lead with 8+ years of experience in full-stack web development",
+  "description": "Senior Frontend Developer & Tech Lead with 8+ years of experience in full-stack web development",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#111827",
   "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "/AK_Dark.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/images/favicon-48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/AK_Dark.png",
+      "src": "/images/AK_Dark.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/AK_Dark.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/AK_Dark.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/AK_Dark.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/AK_Dark.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
-

@@ -29,7 +29,7 @@ export default function Navigation() {
   });
   
   // Determine which logo to use based on theme
-  const logoSrc = mounted && theme === "light" ? "/AK_Light.png" : "/AK_Dark.png";
+  const logoSrc = mounted && theme === "light" ? "/images/AK_Light.png" : "/images/AK_Dark.png";
 
   useEffect(() => {
     const updateIndicator = () => {
