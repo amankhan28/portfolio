@@ -7,14 +7,14 @@ const projects = [
   {
     name: "Real-time Appointment Scheduler",
     description: "Designed and developed an AI-powered scheduling assistant that automated form entry and ticket generation, reducing manual support effort by ~180 hours/month.",
-    tech: ["React", "Node.js", "Playwright"],
+    tech: ["React", "Node.js", "Express.js", "Playwright"],
     icon: Calendar,
     url: null,
   },
   {
     name: "Zollege",
     description: "Architected and delivered a centralized college information platform with over 5,000 listings, leading a team of 5 engineers through agile sprints.",
-    tech: ["React", "Node.js", "MongoDB"],
+    tech: ["React", "Node.js", "Express.js", "MongoDB"],
     icon: GraduationCap,
     url: "https://zollege.in/",
   },

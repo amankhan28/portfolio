@@ -56,7 +56,7 @@ export default function Home() {
                   Full Stack Engineer
                 </p>
                 <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                  Tech Lead with 8+ years of experience in full-stack web development, specializing in building scalable applications using React, Node.js, AWS, Kubernetes, and more. Proven ability to lead cross-functional teams and deliver high-performance features.
+                  Tech Lead with 8+ years of experience in full-stack web development, specializing in building scalable applications using React, Node.js, Express.js, AWS, Kubernetes, and more. Proven ability to lead cross-functional teams and deliver high-performance features.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
                   <Link

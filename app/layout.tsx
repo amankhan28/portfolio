@@ -23,10 +23,10 @@ export const metadata: Metadata = {
 
   // Primary Meta Tags - Optimized for target search queries
   title: {
-    default: "Aman Khan Frontend Developer | Khan Builds Tech | ReactJS Expert | NextJS Full Stack Engineer",
+    default: "Aman Khan - Frontend Developer | Khan Builds Tech",
     template: "%s | Khan Builds Tech - Aman Khan",
   },
-  description: "Khan Builds Tech - Aman Khan's portfolio. Frontend Developer & Full Stack Engineer with 8+ years of experience. Expert in ReactJS, NextJS, Node.js, and TypeScript. Leading scalable web applications and engineering teams. Available for ReactJS and NextJS opportunities.",
+  description: "Frontend Developer & Tech Lead with 8+ years experience. Expert in React, Next.js, Node.js, Express.js & AWS. Building scalable web applications.",
 
   // Comprehensive Keywords - Optimized for target search queries
   keywords: [
@@ -80,6 +80,7 @@ export const metadata: Metadata = {
     "React Developer",
     "React.js Developer",
     "Node.js Developer",
+    "Express.js Developer",
     "Next.js Developer",
     "JavaScript Developer",
     "TypeScript Developer",
@@ -90,6 +91,7 @@ export const metadata: Metadata = {
     "React",
     "Next.js",
     "Node.js",
+    "Express.js",
     "JavaScript",
     "TypeScript",
     "Kubernetes",
@@ -175,7 +177,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Khan Builds Tech — Aman Khan Frontend Developer & Tech Lead",
     title: "Khan Builds Tech | Aman Khan Frontend Developer | ReactJS Expert | NextJS Full Stack Engineer",
-    description: "Khan Builds Tech - Aman Khan's portfolio. Frontend Developer and Full Stack Engineer specializing in ReactJS and NextJS. 8+ years of experience building scalable web applications with React, Next.js, Node.js, and TypeScript.",
+    description: "Khan Builds Tech - Aman Khan's portfolio. Frontend Developer and Full Stack Engineer specializing in ReactJS and NextJS. 8+ years of experience building scalable web applications with React, Next.js, Node.js, Express.js, and TypeScript.",
     images: [
       {
         url: profileImageUrl,
@@ -201,7 +203,7 @@ export const metadata: Metadata = {
     site: "@khanbuildstech",
     creator: "@khanbuildstech",
     title: "Aman Khan — Frontend Developer | Tech Lead",
-    description: "Senior Frontend Developer & Tech Lead with 8+ years of experience in React, Next.js, Node.js, and Kubernetes.",
+    description: "Senior Frontend Developer & Tech Lead with 8+ years of experience in React, Next.js, Node.js, Express.js, and Kubernetes.",
     images: {
       url: profileImageUrl,
       alt: "Aman Khan - Frontend Developer & Tech Lead",

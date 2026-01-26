@@ -31,7 +31,7 @@ export async function GET() {
     
     <item>
       <title>My Development Experience</title>
-      <description>8+ years of experience in full-stack web development, leading teams and building scalable applications with React, Node.js, and AWS.</description>
+      <description>8+ years of experience in full-stack web development, leading teams and building scalable applications with React, Node.js, Express.js, and AWS.</description>
       <link>${siteUrl}/#experience</link>
       <guid>${siteUrl}/#experience</guid>
       <pubDate>${new Date().toUTCString()}</pubDate>

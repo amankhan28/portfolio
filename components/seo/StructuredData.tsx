@@ -19,7 +19,7 @@ const personSchema = {
   ],
   jobTitle: "Senior Frontend Developer & Tech Lead",
   description:
-    "Senior Frontend Developer & Tech Lead with 8+ years of experience in full-stack web development. Expert in React, Next.js, Node.js, and Kubernetes. Building scalable applications and leading high-performance engineering teams.",
+    "Senior Frontend Developer & Tech Lead with 8+ years of experience in full-stack web development. Expert in React, Next.js, Node.js, Express.js, and Kubernetes. Building scalable applications and leading high-performance engineering teams.",
   url: siteUrl,
   image: {
     "@type": "ImageObject",
@@ -93,8 +93,8 @@ const personSchema = {
       "Tech Lead",
     ],
     occupationalCategory: "15-1252.00",
-    description: "Senior Frontend Developer and Tech Lead specializing in ReactJS, NextJS, and full-stack web development. Khan Builds Tech portfolio showcases expertise in React, Next.js, Node.js, TypeScript, Kubernetes, Docker, and Microservices.",
-    skills: "React, ReactJS, Next.js, NextJS, Node.js, TypeScript, Kubernetes, Docker, Microservices, Full Stack Development, Frontend Development",
+    description: "Senior Frontend Developer and Tech Lead specializing in ReactJS, NextJS, and full-stack web development. Khan Builds Tech portfolio showcases expertise in React, Next.js, Node.js, Express.js, TypeScript, Kubernetes, Docker, and Microservices.",
+    skills: "React, ReactJS, Next.js, NextJS, Node.js, Express.js, TypeScript, Kubernetes, Docker, Microservices, Full Stack Development, Frontend Development",
     estimatedSalary: {
       "@type": "MonetaryAmountDistribution",
       currency: "INR",
@@ -112,7 +112,7 @@ const websiteSchema = {
   alternateName: ["Khan Builds Tech", "Aman Khan Portfolio"],
   url: siteUrl,
   description:
-    "Portfolio website of Aman Khan, Senior Frontend Developer & Tech Lead with 8+ years of experience in React, Next.js, and Node.js",
+    "Portfolio website of Aman Khan, Senior Frontend Developer & Tech Lead with 8+ years of experience in React, Next.js, Node.js, and Express.js",
   publisher: { "@id": `${siteUrl}/#person` },
   author: { "@id": `${siteUrl}/#person` },
   inLanguage: "en-US",
@@ -286,7 +286,7 @@ const faqSchema = {
       name: "Who is Aman Khan Frontend Developer?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Aman Khan is a Senior Frontend Developer and Tech Lead with 8+ years of experience in ReactJS, NextJS, and full-stack web development. He specializes in building scalable applications using React, Next.js, Node.js, TypeScript, and Kubernetes. His portfolio website is Khan Builds Tech.",
+        text: "Aman Khan is a Senior Frontend Developer and Tech Lead with 8+ years of experience in ReactJS, NextJS, and full-stack web development. He specializes in building scalable applications using React, Next.js, Node.js, Express.js, TypeScript, and Kubernetes. His portfolio website is Khan Builds Tech.",
       },
     },
     {
@@ -318,7 +318,7 @@ const faqSchema = {
       name: "What technologies does Aman Khan specialize in?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Aman Khan specializes in ReactJS, NextJS, Node.js, TypeScript, JavaScript, Kubernetes, Docker, and Microservices architecture. He has 8+ years of experience in full-stack web development and currently works as a Tech Lead.",
+        text: "Aman Khan specializes in ReactJS, NextJS, Node.js, Express.js, TypeScript, JavaScript, Kubernetes, Docker, and Microservices architecture. He has 8+ years of experience in full-stack web development and currently works as a Tech Lead.",
       },
     },
     {

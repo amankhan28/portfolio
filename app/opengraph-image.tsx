@@ -9,6 +9,8 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image() {
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.khanbuilds.tech";
+
     return new ImageResponse(
         (
             <div
@@ -33,22 +35,29 @@ export default async function Image() {
                         padding: '40px',
                     }}
                 >
-                    {/* Logo/Avatar Circle */}
+                    {/* Actual Logo */}
                     <div
                         style={{
-                            width: '120px',
-                            height: '120px',
-                            borderRadius: '60px',
-                            background: 'linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)',
+                            width: '140px',
+                            height: '140px',
+                            borderRadius: '70px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             marginBottom: '30px',
-                            fontSize: '48px',
-                            fontWeight: 'bold',
                         }}
                     >
-                        AK
+                        <img
+                            src={`${siteUrl}/images/AK_Dark.png`}
+                            width={116}
+                            height={116}
+                            alt="AK Logo"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain',
+                            }}
+                        />
                     </div>
 
                     {/* Main Title */}
@@ -94,10 +103,12 @@ export default async function Image() {
                     <div
                         style={{
                             display: 'flex',
-                            gap: '20px',
+                            gap: '16px',
                             marginTop: '30px',
-                            fontSize: '18px',
+                            fontSize: '16px',
                             color: '#6b7280',
+                            flexWrap: 'wrap',
+                            justifyContent: 'center',
                         }}
                     >
                         <span>React</span>
@@ -106,7 +117,24 @@ export default async function Image() {
                         <span>•</span>
                         <span>Node.js</span>
                         <span>•</span>
+                        <span>Express.js</span>
+                        <span>•</span>
                         <span>AWS</span>
+                    </div>
+
+                    {/* Call-to-Action */}
+                    <div
+                        style={{
+                            marginTop: '40px',
+                            padding: '12px 24px',
+                            background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+                            borderRadius: '8px',
+                            fontSize: '16px',
+                            fontWeight: 'bold',
+                            color: 'white',
+                        }}
+                    >
+                        View Portfolio →
                     </div>
                 </div>
             </div>

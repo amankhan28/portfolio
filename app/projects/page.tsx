@@ -8,7 +8,7 @@ export default function Projects() {
     {
       name: "Zollege Platform",
       description: "Educational platform for students and institutions.",
-      tech: ["React", "Node.js", "MongoDB"],
+      tech: ["React", "Node.js", "Express.js", "MongoDB"],
     },
     {
       name: "iForms Banking Workflow Engine",
