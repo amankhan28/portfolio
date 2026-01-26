@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
+
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    imageSizes: [16, 32, 40, 48, 56, 64, 96, 128, 256, 260, 300, 340, 384, 400, 504, 520],
     qualities: [75, 95],
     remotePatterns: [
       {
@@ -40,10 +40,10 @@ const nextConfig = {
       },
     ],
   },
-  
+
   compress: true,
   poweredByHeader: false,
-  
+
   // Security Headers - Improves SEO trust signals
   async headers() {
     return [
@@ -102,7 +102,7 @@ const nextConfig = {
       },
     ];
   },
-  
+
   // Redirects for SEO (non-www to www for khanbuilds.tech)
   async redirects() {
     return [

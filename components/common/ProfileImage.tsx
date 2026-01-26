@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { 
+import {
   SiReact, SiNextdotjs, SiNodedotjs, SiJavascript, SiTypescript,
   SiPython, SiExpress, SiDjango, SiMongodb,
   SiDocker, SiKubernetes, SiGit, SiJest,
@@ -30,7 +30,7 @@ export default function ProfileImage() {
   const [glitchOffset, setGlitchOffset] = useState({ x: 0, y: 0 });
   const [matrixChars, setMatrixChars] = useState<MatrixChar[]>([]);
   const [hologramActive, setHologramActive] = useState(false);
-  
+
   // Use external image service URL from environment variable, or fallback to local
   // Set NEXT_PUBLIC_PROFILE_IMAGE_URL in .env.local to use external hosting
   // Examples:
@@ -45,11 +45,11 @@ export default function ProfileImage() {
   useEffect(() => {
     // Check if image exists
     const img = new window.Image();
-    
+
     img.onload = () => {
       setImageLoaded(true);
     };
-    
+
     img.onerror = () => {
       // If external URL fails, try local fallback
       if (imageSrc !== "/images/profile.jpeg") {
@@ -59,7 +59,7 @@ export default function ProfileImage() {
         setImageError(true);
       }
     };
-    
+
     img.src = imageSrc;
   }, [imageSrc]);
 
@@ -95,7 +95,7 @@ export default function ProfileImage() {
       { name: 'API', icon: Code2 },
       { name: 'Microservices', icon: Server },
     ];
-    
+
     // Function to shuffle array (Fisher-Yates algorithm)
     const shuffleArray = <T,>(array: T[]): T[] => {
       const shuffled = [...array];
@@ -110,25 +110,25 @@ export default function ProfileImage() {
     const generateTechStreams = (preservePositions: boolean = false) => {
       // Shuffle technologies array using Fisher-Yates for true randomness
       const shuffled = shuffleArray(technologies);
-      
+
       // Create 20 streams - enough to show variety but not too crowded
       const newMatrixChars: MatrixChar[] = [];
-      
+
       // Cycle through all technologies, ensuring each appears
       // Then repeat with different random order
       const streamsPerCycle = 20;
       const techCount = technologies.length;
-      
+
       for (let i = 0; i < streamsPerCycle; i++) {
         // Use modulo to cycle through shuffled array, ensuring all techs appear
         const techIndex = i % techCount;
         const tech = shuffled[techIndex];
-        
+
         // Preserve existing animation properties to prevent animation reset
         const existingChar = preservePositions && matrixChars.length > 0 && matrixChars[i]
           ? matrixChars[i]
           : null;
-        
+
         newMatrixChars.push({
           tech: tech,
           y: existingChar ? existingChar.y : Math.random() * 100,
@@ -136,20 +136,20 @@ export default function ProfileImage() {
           speed: existingChar ? existingChar.speed : (0.5 + Math.random() * 0.5),
         });
       }
-      
+
       // Only shuffle positions on initial load, not on updates
       const finalArray = preservePositions ? newMatrixChars : shuffleArray(newMatrixChars);
       setMatrixChars(finalArray);
     };
-    
+
     // Initial generation
     generateTechStreams(false);
-    
+
     // Update technologies every 2.5 seconds, but preserve positions for smooth transition
     const updateInterval = setInterval(() => {
       generateTechStreams(true);
     }, 2500);
-    
+
     return () => clearInterval(updateInterval);
   }, []);
 
@@ -160,7 +160,7 @@ export default function ProfileImage() {
         // Trigger hologram effect
         setHologramActive(true);
         setTimeout(() => setHologramActive(false), 300);
-        
+
         // Glitch offset
         setGlitchOffset({
           x: (Math.random() - 0.5) * 10,
@@ -241,12 +241,12 @@ export default function ProfileImage() {
 
       {/* Holographic scan lines */}
       <div className="absolute inset-0 z-[7] pointer-events-none overflow-hidden rounded-full">
-        <div 
+        <div
           className="absolute w-full h-1 bg-gradient-to-r from-transparent via-cyan-400/60 via-purple-400/60 to-transparent"
-          style={{ 
+          style={{
             animation: 'scanline 2.5s linear infinite',
             top: '-4px',
-          }} 
+          }}
         />
       </div>
 
@@ -261,7 +261,7 @@ export default function ProfileImage() {
       </div>
 
       {/* Holographic glitch effect layers - RGB separation */}
-      <div 
+      <div
         className="absolute inset-0 z-[1] transition-all duration-200"
         style={{
           opacity: hologramActive ? 0.7 : (glitchOffset.x !== 0 || glitchOffset.y !== 0 ? 0.5 : 0),
@@ -272,7 +272,7 @@ export default function ProfileImage() {
           src={imageSrc}
           alt=""
           fill
-          sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 340px, 400px"
+          sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 340px, (max-width: 1280px) 400px, 520px"
           className="object-cover mix-blend-screen"
           style={{
             transform: `translate(${glitchOffset.x}px, ${glitchOffset.y}px) scale(${hologramActive ? 1.02 : 1})`,
@@ -281,7 +281,7 @@ export default function ProfileImage() {
           aria-hidden="true"
         />
       </div>
-      <div 
+      <div
         className="absolute inset-0 z-[2] transition-all duration-200"
         style={{
           opacity: hologramActive ? 0.6 : (glitchOffset.x !== 0 || glitchOffset.y !== 0 ? 0.4 : 0),
@@ -292,7 +292,7 @@ export default function ProfileImage() {
           src={imageSrc}
           alt=""
           fill
-          sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 340px, 400px"
+          sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 340px, (max-width: 1280px) 400px, 520px"
           className="object-cover mix-blend-multiply"
           style={{
             transform: `translate(${-glitchOffset.x}px, ${-glitchOffset.y}px) scale(${hologramActive ? 0.98 : 1})`,
@@ -302,7 +302,7 @@ export default function ProfileImage() {
         />
       </div>
       {/* Additional holographic layer */}
-      <div 
+      <div
         className="absolute inset-0 z-[1.5] transition-all duration-200"
         style={{
           opacity: hologramActive ? 0.5 : (glitchOffset.x !== 0 || glitchOffset.y !== 0 ? 0.3 : 0),
@@ -312,7 +312,7 @@ export default function ProfileImage() {
           src={imageSrc}
           alt=""
           fill
-          sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 340px, 400px"
+          sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 340px, (max-width: 1280px) 400px, 520px"
           className="object-cover mix-blend-color-dodge"
           style={{
             transform: `translate(${glitchOffset.y}px, ${glitchOffset.x}px) rotate(${hologramActive ? '0.5deg' : '0deg'})`,
@@ -327,22 +327,22 @@ export default function ProfileImage() {
         src={imageSrc}
         alt="Aman Khan"
         fill
-        sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 340px, 400px"
+        sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 340px, (max-width: 1280px) 400px, 520px"
         className="object-cover relative z-0 transition-all duration-300"
         priority
-        quality={95}
+        quality={70}
+        fetchPriority="high"
         onError={() => setImageError(true)}
-        onLoad={() => setImageLoaded(true)}
         style={{
-          filter: hologramActive 
-            ? 'contrast(1.3) brightness(1.1) saturate(1.2)' 
+          filter: hologramActive
+            ? 'contrast(1.3) brightness(1.1) saturate(1.2)'
             : 'contrast(1.1) brightness(1.05)',
           transform: hologramActive ? 'scale(1.01)' : 'scale(1)',
         }}
       />
 
       {/* Holographic interference pattern */}
-      <div 
+      <div
         className="absolute inset-0 z-[3] pointer-events-none opacity-40 transition-opacity duration-300"
         style={{
           opacity: hologramActive ? 0.6 : 0.3,
@@ -373,8 +373,8 @@ export default function ProfileImage() {
 
       {/* Data stream effect */}
       <div className="absolute inset-0 z-[9] pointer-events-none overflow-hidden rounded-full">
-        <div className="absolute top-0 left-1/2 w-0.5 h-full bg-gradient-to-b from-transparent via-cyan-400/50 to-transparent animate-pulse" 
-             style={{ animation: 'dataStream 3s ease-in-out infinite' }} />
+        <div className="absolute top-0 left-1/2 w-0.5 h-full bg-gradient-to-b from-transparent via-cyan-400/50 to-transparent animate-pulse"
+          style={{ animation: 'dataStream 3s ease-in-out infinite' }} />
       </div>
     </div>
   );

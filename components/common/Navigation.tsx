@@ -160,8 +160,10 @@ export default function Navigation() {
                     src={logoSrc}
                     alt="AK Logo"
                     fill
+                    sizes="(max-width: 640px) 40px, (max-width: 768px) 48px, 56px"
                     className="object-contain"
                     priority
+                    quality={75}
                   />
                 </div>
               </div>
@@ -283,7 +285,9 @@ export default function Navigation() {
                         src={logoSrc}
                         alt="AK Logo"
                         fill
+                        sizes="40px"
                         className="object-contain"
+                        quality={75}
                       />
                     </div>
                   </div>
